@@ -135,8 +135,8 @@ Camera:
   m_GameObject: {fileID: 409953752}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -230,7 +230,8 @@ MonoBehaviour:
   mapContainer: {fileID: 1601730226}
   tilePrefab: {fileID: 189836, guid: 837302a9510f8154282e8047cfb192f1, type: 2}
   tileSize: {x: 16, y: 16}
-  islandTexture: {fileID: 2800000, guid: 41cced9af4820d949a335d79667a548b, type: 3}
+  islandTexture: {fileID: 2800000, guid: 0fc7f2d1dc91ecf4cb6730b3dde798be, type: 3}
+  erodePercent: 0.5
 --- !u!4 &1601730228
 Transform:
   m_ObjectHideFlags: 0

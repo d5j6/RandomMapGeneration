@@ -17,6 +17,12 @@ public class RandomMapTester : MonoBehaviour {
     [Header("Map Sprites")]
     public Texture2D islandTexture;
 
+    [Space]
+    [Header("Decorate Map")]
+    [Range(0, .9f)]
+    public float erodePercent = .5f;
+    public int erodeIterations = 2;
+
     public Map map;
 
 	// Use this for initialization
@@ -28,7 +34,10 @@ public class RandomMapTester : MonoBehaviour {
     public void MakeMap()
     {
         map.NewMap(mapWidth, mapHeight);
-        Debug.Log("Created a new " + map.columns + "x" + map.rows + " map");
+        map.CreateIsland(
+            erodePercent,
+            erodeIterations
+            );
         CreateGrid();
     }
 

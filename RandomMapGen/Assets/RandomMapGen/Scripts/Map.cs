@@ -1,11 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
+
+public enum TileType
+{
+    Empty = -1,
+    Grass = 15
+}
 
 public class Map {
 
     public Tile[] tiles;
     public int columns;
     public int rows;
+
+    public Tile[] coastTiles
+    {
+        get {
+            return tiles.Where(t => t.autotileID < (int)TileType.Grass).ToArray();
+                }
+    }
 
     public void NewMap(int width, int height)
     {
@@ -15,6 +29,16 @@ public class Map {
         tiles = new Tile[columns * rows];
 
         CreateTiles();
+    }
+
+    public void CreateIsland(
+        float erodePercent,
+        int erodeIterations
+        ){
+        for (var i = 0; i < erodeIterations; i++)
+        {
+            DecorateTiles(coastTiles, erodePercent, TileType.Empty);
+        }
     }
 
     private void CreateTiles()
@@ -65,5 +89,38 @@ public class Map {
         }
 
 
+    }
+
+
+    public void DecorateTiles(Tile[] tiles, float percent, TileType type)
+    {
+        // get whole number
+        var total = Mathf.FloorToInt(tiles.Length * percent);
+
+        RandomizeTileArray(tiles);
+
+        for(var i = 0; i < total; i++)
+        {
+            var tile = tiles[i];
+
+            if (type == TileType.Empty)
+            {
+                tile.ClearNeighbours();
+                tile.autotileID = (int)type;
+            }
+
+        }
+
+    }
+
+    public void RandomizeTileArray(Tile[] tiles)
+    {
+        for(var i = 0; i < tiles.Length; i++)
+        {
+            var tmp = tiles[i];
+            var r = Random.Range(i, tiles.Length);
+            tiles[i] = tiles[r];
+            tiles[r] = tmp;
+        }
     }
 }
