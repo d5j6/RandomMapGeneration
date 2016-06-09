@@ -85,20 +85,74 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &409953752
+--- !u!1 &862763708
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 409953757}
-  - 20: {fileID: 409953756}
-  - 92: {fileID: 409953755}
-  - 124: {fileID: 409953754}
-  - 81: {fileID: 409953753}
-  - 114: {fileID: 409953758}
-  - 114: {fileID: 409953759}
+  - 4: {fileID: 862763710}
+  - 114: {fileID: 862763709}
+  m_Layer: 0
+  m_Name: RandomMapTester
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &862763709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 862763708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46182507d719d49a5bbb879f2480ae54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapWidth: 20
+  mapHeight: 20
+  mapContainer: {fileID: 862763708}
+  tilePrefab: {fileID: 130468, guid: b7e373b522b554b2b9c21b7229a91eee, type: 2}
+  tileSize: {x: 16, y: 16}
+  islandTexture: {fileID: 2800000, guid: 6dda2095192964815b349ac505a5e664, type: 3}
+  erodePercent: 0.5
+  erodeIterations: 2
+  treePercent: 0.3
+  hillPercent: 0.2
+  mountainsPercent: 0.1
+  townPercent: 0.05
+  monsterPercent: 0.1
+  lakePercent: 0.05
+--- !u!4 &862763710
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 862763708}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+--- !u!1 &2006166429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2006166434}
+  - 20: {fileID: 2006166433}
+  - 92: {fileID: 2006166432}
+  - 124: {fileID: 2006166431}
+  - 81: {fileID: 2006166430}
+  - 114: {fileID: 2006166435}
+  - 114: {fileID: 2006166436}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -106,33 +160,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &409953753
+--- !u!81 &2006166430
 AudioListener:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 409953752}
+  m_GameObject: {fileID: 2006166429}
   m_Enabled: 1
---- !u!124 &409953754
+--- !u!124 &2006166431
 Behaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 409953752}
+  m_GameObject: {fileID: 2006166429}
   m_Enabled: 1
---- !u!92 &409953755
+--- !u!92 &2006166432
 Behaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 409953752}
+  m_GameObject: {fileID: 2006166429}
   m_Enabled: 1
---- !u!20 &409953756
+--- !u!20 &2006166433
 Camera:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 409953752}
+  m_GameObject: {fileID: 2006166429}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
@@ -161,12 +215,12 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
---- !u!4 &409953757
+--- !u!4 &2006166434
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 409953752}
+  m_GameObject: {fileID: 2006166429}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -174,74 +228,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &409953758
+--- !u!114 &2006166435
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 409953752}
+  m_GameObject: {fileID: 2006166429}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaedf5b9d4a26414abd2cb4786d76754, type: 3}
+  m_Script: {fileID: 11500000, guid: cb1df1e25b9d04db3a439c9f57307b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nativeResolution: {x: 160, y: 144}
---- !u!114 &409953759
+--- !u!114 &2006166436
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 409953752}
+  m_GameObject: {fileID: 2006166429}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eac9ef35788214e4b8fac611902c13d6, type: 3}
+  m_Script: {fileID: 11500000, guid: d970ecc7fde9948e298db409dafe512d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
---- !u!1 &1601730226
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1601730228}
-  - 114: {fileID: 1601730227}
-  m_Layer: 0
-  m_Name: RandomMapTester
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1601730227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1601730226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf727f92caaaa4a4d8b85b1289b6412e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mapWidth: 20
-  mapHeight: 20
-  mapContainer: {fileID: 1601730226}
-  tilePrefab: {fileID: 189836, guid: 837302a9510f8154282e8047cfb192f1, type: 2}
-  tileSize: {x: 16, y: 16}
-  islandTexture: {fileID: 2800000, guid: 0fc7f2d1dc91ecf4cb6730b3dde798be, type: 3}
-  erodePercent: 0.5
---- !u!4 &1601730228
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1601730226}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1

@@ -3,26 +3,26 @@ using System.Collections;
 
 public class PixelPerfectCamera : MonoBehaviour {
 
-    public static float pixelToUnits = 1f;
-    public static float scale = 1f;
+	public static float pixelToUnits = 1f;
+	public static float scale = 1f;
 
-    public Vector2 nativeResolution = new Vector2(160, 144);
+	public Vector2 nativeResolution = new Vector2 (160, 144);
 
-    void Awake()
-    {
+	void Awake(){
 
-        var camera = GetComponent<Camera>();
+		var camera = GetComponent<Camera> ();
 
-        if (camera.orthographic)
-        {
-            var dir = Screen.height;
-            var res = nativeResolution.y;
+		if (camera.orthographic) {
 
-            scale = dir / res;
-            pixelToUnits *= scale;
+			var dir = Screen.height;
+			var res = nativeResolution.y;
 
-            camera.orthographicSize = (dir / 2.0f) / pixelToUnits;
+			scale = dir / res;
+			pixelToUnits *= scale;
 
-        }
-    }
+			camera.orthographicSize = (dir / 2.0f) / pixelToUnits;
+
+		}
+
+	}
 }

@@ -3,67 +3,60 @@ using System.Collections;
 using System;
 using System.Text;
 
-public enum Sides
-{
-    Bottom,
-    Right,
-    Left,
-    Top
+public enum Sides{
+	Bottom,
+	Right,
+	Left,
+	Top
 }
 
 public class Tile {
 
-    public int id = 0;
-    public Tile[] neighbours = new Tile[4];
-    public int autotileID;
+	public int id = 0;
+	public Tile[] neighbors = new Tile[4];
+	public int autotileID;
 
-    public void AddNeighbour(Sides side, Tile tile)
-    {
-        neighbours[(int)side] = tile;
-        CalculateAutotileID();
-    }
+	public void AddNeighbor(Sides side, Tile tile){
+		neighbors [(int)side] = tile;
+		CalculateAutotileID ();
+	}
 
-    public void RemoveNeighbour(Tile tile)
-    {
-        var total = neighbours.Length;
-        for(var i = 0; i < total; i++)
-        {
-            if (neighbours [i] != null)
-            {
-                if (neighbours[i].id == tile.id)
-                {
-                    neighbours[i] = null;
-                }
-            }
-        }
+	public void RemoveNeighbor(Tile tile){
 
-        CalculateAutotileID();
-    }
+		var total = neighbors.Length;
+		for (var i = 0; i < total; i++) {
+			if (neighbors [i] != null) {
+				if (neighbors [i].id == tile.id) {
+					neighbors [i] = null;
+				}
+			}
+		}
 
-    public void ClearNeighbours()
-    {
-        var total = neighbours.Length;
-        for(var i = 0; i< total; i++)
-        {
-            var tile = neighbours[i];
-            if (tile != null)
-            {
-                tile.RemoveNeighbour(this);
-                neighbours[i] = null;
-            }
-        }
-        CalculateAutotileID();
-    }
+		CalculateAutotileID ();
+	}
 
-    private void CalculateAutotileID()
-    {
-        var sideValues = new StringBuilder();
-        foreach(Tile tile in neighbours)
-        {
-            sideValues.Append(tile == null ? "0" : "1");
-        }
+	public void ClearNeighbors(){
 
-        autotileID = Convert.ToInt32(sideValues.ToString(), 2);
+		var total = neighbors.Length;
+		for (var i = 0; i < total; i++) {
+			var tile = neighbors [i];
+			if (tile != null) {
+				tile.RemoveNeighbor (this);
+				neighbors [i] = null;
+			}
+		}
 
-    }
+		CalculateAutotileID ();
+	}
+
+	private void CalculateAutotileID(){
+
+		var sideValues = new StringBuilder ();
+		foreach (Tile tile in neighbors) {
+			sideValues.Append (tile == null ? "0" : "1");
+		}
+
+		autotileID = Convert.ToInt32 (sideValues.ToString (), 2);
+
+	}
 }
