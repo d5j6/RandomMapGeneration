@@ -23,6 +23,38 @@ public class Tile {
         CalculateAutotileID();
     }
 
+    public void RemoveNeighbour(Tile tile)
+    {
+        var total = neighbours.Length;
+        for(var i = 0; i < total; i++)
+        {
+            if (neighbours [i] != null)
+            {
+                if (neighbours[i].id == tile.id)
+                {
+                    neighbours[i] = null;
+                }
+            }
+        }
+
+        CalculateAutotileID();
+    }
+
+    public void ClearNeighbours()
+    {
+        var total = neighbours.Length;
+        for(var i = 0; i< total; i++)
+        {
+            var tile = neighbours[i];
+            if (tile != null)
+            {
+                tile.RemoveNeighbour(this);
+                neighbours[i] = null;
+            }
+        }
+        CalculateAutotileID();
+    }
+
     private void CalculateAutotileID()
     {
         var sideValues = new StringBuilder();
